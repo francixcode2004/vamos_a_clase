@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import models.InstructorDao;
 import models.User;
 import models.UserDao;
 
@@ -23,6 +24,7 @@ import models.UserDao;
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserDao userdao= new UserDao();
+	private InstructorDao instructordao= new InstructorDao();
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -38,6 +40,9 @@ public class UserServlet extends HttpServlet {
 				break;
 			case "cerrar":
 				cerrarSesion(request,response);
+				break;
+			case "add_tutoria":
+				Registrar_tutoria(request,response);
 				break;
 				// añadir más casos según sea necesario
 			default:
@@ -130,4 +135,21 @@ public class UserServlet extends HttpServlet {
 		}
 		response.sendRedirect(request.getContextPath() + "/index.jsp"); // Redirigir a la página de index
 	}
+	private void Registrar_tutoria(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	    // Obtener los parámetros del formulario
+	    String nombreEstudiante = request.getParameter("name");  // Suponiendo que el campo en el formulario se llama "name"
+	    String nombreInstructor = request.getParameter("instructor");  // Suponiendo que el campo en el formulario se llama "tutor"
+	    String tema = request.getParameter("teaching-subject");  // Suponiendo que el campo en el formulario se llama "teaching-subject"
+	    String fecha = request.getParameter("date");
+	    String hora = request.getParameter("time");
+	    boolean success = instructordao.ingresarTutoria(nombreEstudiante, nombreInstructor, tema, fecha, hora);
+
+	    if (success) {
+	        response.sendRedirect(request.getContextPath() + "/user_index.jsp?mensaje=Tutoría registrada con éxito.");
+	    } else {
+	        response.sendRedirect(request.getContextPath() + "/error.jsp?mensaje=Error al registrar la tutoría");  // Página de error
+	    }
+	}
+
+
 }

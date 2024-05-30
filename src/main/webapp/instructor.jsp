@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import="models.UserDao" %>
+    <%@ page import="models.InstructorDao" %>
+<%
+    UserDao userdao = new UserDao();
+	InstructorDao instructordao = new InstructorDao();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,48 +59,14 @@ if (usuario == null || perfil == null || perfil != 3) {
                     </div>
                 </div>
             </section>
-    <div class="delete-button">
-      <button>Eliminar</button>
-            <input type="number" placeholder="ID de Tutoría" id="tutoriaId">
-      
-    </div>
+
     
 		<div class="container">
   <div class="title">Tutorías programadas</div>
-  <table>
-    <thead>
-      <tr>
-      	<th>Id</th>
-        <th>Fecha</th>
-        <th>Hora</th>
-        <th>Tema</th>
-        <th>Estudiante</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-      	<td>1</td>
-        <td>2023-05-30</td>
-        <td>10:00 AM</td>
-        <td>Matemáticas</td>
-        <td>Juan Pérez</td>
-      </tr>
-      <tr>
-      <td>1</td>
-        <td>2023-06-01</td>
-        <td>2:00 PM</td>
-        <td>Química</td>
-        <td>María Gómez</td>
-      </tr>
-      <tr>
-      <td>1</td>
-        <td>2023-06-05</td>
-        <td>4:30 PM</td>
-        <td>Física</td>
-        <td>Carlos Hernández</td>
-      </tr>
-    </tbody>
-  </table>
+  <%
+  	String tabla=instructordao.consultarTutorias();
+  	out.print(tabla);
+  %>
   
 </div>
     <footer class="footer">

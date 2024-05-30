@@ -237,7 +237,7 @@ public class InstructorDao {
 	    }
 	}
 	public String mostrarInstructores() {
-	    String combo = "<select id=\"instructor\" name=\"instructor\" onchange=\"mostrarInformacionTutor()\">";
+	    String combo = "<select id=\"instructor\" name=\"instructor\">";
 	    String sql = "SELECT id_usuario, nombre FROM usuarios WHERE id_perfil = 3;";
 	    DatabaseConnection con = new DatabaseConnection();
 	    ResultSet rs = null;
@@ -263,6 +263,132 @@ public class InstructorDao {
 	    return combo;
 	}
 
+	public boolean ingresarTutoria(String nombreEstudiante, String nombreInstructor, String tema, String fecha, String hora) {
+	    String sql = "INSERT INTO public.tuto (nombre_estudiante, nombre_instructor, tema, dia, hora) VALUES (?, ?, ?, ?, ?)";
+	    Connection con = null;
+	    PreparedStatement pstmt = null;
+	    try {
+	        DatabaseConnection conexion = new DatabaseConnection();
+	        con = conexion.getConexion();
+	        pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, nombreEstudiante);
+	        pstmt.setString(2, nombreInstructor);
+	        pstmt.setString(3, tema);
+	        pstmt.setString(4, fecha);
+	        pstmt.setString(5, hora);
+
+	        int affectedRows = pstmt.executeUpdate();
+	        return affectedRows > 0;
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return false;
+	    } finally {
+	        try {
+	            if (pstmt != null) pstmt.close();
+	            if (con != null) con.close();
+	        } catch (SQLException ex) {
+	            ex.printStackTrace();
+	        }
+	    }
+	}
+	public String ListarInstructores() {
+	    String combo = "<select id=\"instructor\" name=\"instructor\">";
+	    String sql = "SELECT id_usuario, nombre FROM usuarios WHERE id_perfil = 3;";
+	    DatabaseConnection con = new DatabaseConnection();
+	    ResultSet rs = null;
+	    try {
+	        rs = con.consulta(sql);
+	        while (rs.next()) {
+	            combo += "<option value=\"" + rs.getString("nombre") + "\">" + rs.getString("nombre") + "</option>"; // Cambiado para enviar el nombre
+	        }
+	        combo += "</select>";
+	    } catch (SQLException e) {
+	        System.out.println("Error al ejecutar la consulta SQL: " + e.getMessage());
+	    } finally {
+	        try {
+	            if (rs != null) {
+	                rs.close(); // Cerrar el ResultSet si no es nulo
+	            }
+	            con.cerrar(); // Cerrar la conexión a la base de datos
+	        } catch (SQLException ex) {
+	            ex.printStackTrace();
+	        }
+	    }
+	    return combo;
+	}
+	
+	
+	public String ListarTemas() {
+	    String combo = "<select id=\"teaching-subject\" name=\"teaching-subject\">";
+	    String sql = "SELECT id_tema, tema FROM temas;";
+	    DatabaseConnection con = new DatabaseConnection();
+	    ResultSet rs = null;
+	    try {
+	        rs = con.consulta(sql);
+	        while (rs.next()) {
+	            combo += "<option value=\"" + rs.getString("tema") + "\">" + rs.getString("tema") + "</option>"; // Cambiado para enviar y mostrar el nombre del tema
+	        }
+	        combo += "</select>";
+	    } catch (SQLException e) {
+	        System.out.println("Error al ejecutar la consulta SQL: " + e.getMessage());
+	    } finally {
+	        try {
+	            if (rs != null) {
+	                rs.close(); // Cerrar el ResultSet si no es nulo
+	            }
+	            con.cerrar(); // Cerrar la conexión a la base de datos
+	        } catch (SQLException ex) {
+	            ex.printStackTrace();
+	        }
+	    }
+	    return combo;
+	}
+
+	public String consultarTutorias() {
+	    String sql = "SELECT id_tutoria, nombre_instructor, tema, nombre_estudiante, dia, hora FROM public.tuto;";
+	    DatabaseConnection con = new DatabaseConnection();
+	    StringBuilder tabla = new StringBuilder("<table>"
+	            + "<thead>"
+	            + "<tr>"
+	            + "<th>ID</th>"
+	            + "<th>Instructor</th>"
+	            + "<th>Tema</th>"
+	            + "<th>Estudiante</th>"
+	            + "<th>Fecha</th>"
+	            + "<th>Hora</th>"
+	            + "</tr>"
+	            + "</thead>"
+	            + "<tbody>");
+	    ResultSet rs = null;
+	    try {
+	        rs = con.consulta(sql);
+	        while (rs.next()) {
+	            tabla.append("<tr>")
+	                    .append("<td>").append(rs.getInt("id_tutoria")).append("</td>")
+	                    .append("<td>").append(rs.getString("nombre_instructor")).append("</td>")
+	                    .append("<td>").append(rs.getString("tema")).append("</td>")
+	                    .append("<td>").append(rs.getString("nombre_estudiante")).append("</td>")
+	                    .append("<td>").append(rs.getString("dia")).append("</td>")
+	                    .append("<td>").append(rs.getString("hora")).append("</td>")
+	                    .append("</tr>");
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        System.out.print(e.getMessage());
+	    } finally {
+	        try {
+	            if (rs != null) {
+	                rs.close();
+	            }
+	            con.cerrar();  // Asegurarse de cerrar la conexión
+	        } catch (SQLException ex) {
+	            ex.printStackTrace();
+	        }
+	    }
+	    tabla.append("</tbody>")
+	            .append("</table>");
+	    return tabla.toString();
+	}
 
 
 }

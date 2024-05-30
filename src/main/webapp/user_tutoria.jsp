@@ -72,16 +72,25 @@ if (usuario == null || perfil == null || perfil != 2) {
                 <h1 class="title">Agendar Tutoria</h1>
                 <p class="subtitle">Completa el formulario para solicitar una sesión de tutoría.</p>
             </div>
-             <form action="${pageContext.request.contextPath}/InstructorServlet" method="post" enctype="multipart/form-data">
+             <form action="${pageContext.request.contextPath}/UserServlet" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                             <label for="tutor">Selecciona un Tutor</label>
                             <%
-                            	String cmb_instructores = instructordao.mostrarInstructores();
+                            	String cmb_instructores = instructordao.ListarInstructores();
                             	out.print(cmb_instructores);
                             %>
                            
                         </div>
+                        
+                           
+                        </div>
                 <div id="tutor-info" >
+                <label for="teaching-subject">Tema</label>
+					   <%
+					   		
+					   		String combo_temas=instructordao.mostrarTemas();
+					   		out.print(combo_temas);
+					   %>
                     <div class="form-group">
                         <label for="name">Nombre</label>
                         <input id="name" name="name" type="text" placeholder="Ingresa tu nombre" required>
@@ -100,7 +109,7 @@ if (usuario == null || perfil == null || perfil != 2) {
                             <input id="time" name="time" type="time" required>
                         </div>
                     </div>
-                    <button type="submit" class="submit-button">Solicitar Tutoria</button>
+                    <button type="submit" name="action" value="add_tutoria" class="submit-button">Solicitar Tutoria</button>
                 </div>
             </form>
         </div>
