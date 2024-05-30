@@ -1,0 +1,307 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #F3F4F6;
+	color: #1E293B;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.header {
+	background-color: #1E293B;
+	color: white;
+	display: flex;
+	align-items: center;
+	padding: 0 16px;
+	height: 56px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	color: white;
+	text-decoration: none;
+}
+
+.logo .icon {
+	margin-right: 8px;
+}
+
+.nav {
+	margin-left: auto;
+	display: flex;
+	gap: 16px;
+}
+
+.nav a {
+	color: white;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.nav a:hover {
+	text-decoration: underline;
+}
+
+.main {
+	flex: 1;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.hero {
+	background-color: #1E293B;
+	color: white;
+	padding: 48px 0;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 16px;
+	margin-bottom: 40px; /* Added space below the container */
+	box-sizing: border-box;
+}
+
+.hero-content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 16px;
+}
+
+.hero-content h1 {
+	font-size: 32px;
+	font-weight: bold;
+}
+
+.hero-content p {
+	color: #94A3B8;
+}
+
+.search {
+	display: flex;
+	gap: 8px;
+	width: 100%;
+}
+
+.search-input {
+	flex: 1;
+	padding: 8px;
+	border: none;
+	border-radius: 4px;
+}
+
+.search-button {
+	background-color: #3B82F6;
+	color: white;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.search-button:hover {
+	background-color: #2563EB;
+}
+
+.hero-image {
+	width: 100%;
+	max-width: 550px;
+	border-radius: 16px;
+}
+
+/* Card Styles */
+.card {
+	background: #f9f9f9;
+	border: 1px solid #ddd;
+	margin-top: 20px;
+	padding: 10px;
+	border-radius: 8px;
+}
+
+.card header {
+	margin-bottom: 10px;
+}
+
+.card header h3 {
+	margin: 0;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.card header p {
+	margin: 0;
+	color: #6B7280;
+}
+
+.card footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* Badge Styles */
+.badge {
+	background-color: #6c757d;
+	color: white;
+	padding: 5px 10px;
+	border-radius: 5px;
+}
+
+/* Button Styles */
+.edit, .delete {
+	padding: 5px 10px;
+	border: 1px solid #ccc;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.edit {
+	border-color: #007BFF;
+	color: #007BFF;
+}
+
+.edit:hover {
+	background-color: #007BFF;
+	color: white;
+}
+
+.delete {
+	border-color: #dc3545;
+	color: #dc3545;
+}
+
+.delete:hover {
+	background-color: #dc3545;
+	color: white;
+}
+
+/*footer*/
+.footer {
+	background-color: #1E293B;
+	color: white;
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.footer-content {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.footer-text {
+	font-size: 0.875rem;
+}
+
+.social-icons {
+	display: flex;
+	gap: 1rem;
+}
+
+.icon-link {
+	color: white;
+}
+
+.icon {
+	width: 24px;
+	height: 24px;
+}
+
+.footer-nav {
+	display: flex;
+	gap: 1rem;
+	margin-top: 1rem;
+}
+
+.footer-link {
+	font-size: 0.875rem;
+	color: white;
+	text-decoration: none;
+}
+
+.footer-link:hover {
+	text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+	.header {
+		flex-direction: column;
+		align-items: flex-start;
+		height: auto;
+		padding: 8px;
+	}
+	
+	.nav {
+		width: 100%;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+	
+	.nav a {
+		flex: 1;
+		text-align: center;
+		padding: 8px 0;
+		border-top: 1px solid #1E293B;
+	}
+	
+	.nav a:first-child {
+		border-top: none;
+	}
+	
+	.hero-content h1 {
+		font-size: 24px;
+	}
+	
+	.search {
+		flex-direction: column;
+		gap: 4px;
+	}
+	
+	.search-input, .search-button {
+		width: 100%;
+		padding: 12px;
+	}
+	
+	.hero-image {
+		max-width: 100%;
+	}
+	
+	.card {
+		padding: 16px;
+	}
+	
+	.card footer {
+		flex-direction: column;
+		gap: 8px;
+	}
+	
+	.edit, .delete {
+		width: 100%;
+		text-align: center;
+	}
+	
+	.footer-content {
+		flex-direction: column;
+		gap: 8px;
+	}
+	
+	.footer-nav {
+		flex-direction: column;
+		align-items: center;
+	}
+}

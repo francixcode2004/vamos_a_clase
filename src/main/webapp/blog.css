@@ -1,0 +1,79 @@
+/*
+blog
+*/
+.img-principal {
+   margin: 0; /* Elimina el margen para asegurar que la imagen ocupe todo el ancho */
+}
+
+.img-principal img {
+   width: 100%; /* Establece el ancho al 100% de la ventana gráfica */
+    height: auto;
+    margin-bottom: 16px; /* Ajusta el margen inferior de la imagen */
+    border-radius: 0; /* Elimina el borde redondeado para ocupar todo el ancho */
+  object-fit: cover; /* Ajusta la imagen para que se adapte al tamaño especificado */
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  .img-principal {
+    margin: 0; /* Elimina el margen para asegurar que la imagen ocupe todo el ancho */
+  }
+  .img-principal img {
+    width: 100%; /* Establece el ancho al 100% de la ventana gráfica */
+    height: auto;
+    margin-bottom: 16px; /* Ajusta el margen inferior de la imagen */
+    border-radius: 0; /* Elimina el borde redondeado para ocupar todo el ancho */
+  }
+}
+
+.article .header {
+  margin-bottom: 24px;
+}
+
+.article .date {
+  color: #6B7280;
+}
+
+.article .content p {
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.comments-section {
+  background-color: #E5E7EB;
+  padding: 24px 0;
+}
+
+.comments-section .container {
+  background-color: #FFFFFF;
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.comments-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.comment {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.comment .avatar {
+  width: 40px;
+  height: 40px; /* Mantén la altura y el ancho iguales para la proporción circular */
+  border-radius: 50%;
+  margin-right: 16px;
+  border: 2px solid #1E293B;
+}
+
+.comment .comment-content {
+  max-width: 600px;
+}
+
+.comment .comment-author {
+  font-weight: bold;
+  margin-bottom: 8px;
+}

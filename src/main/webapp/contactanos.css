@@ -1,0 +1,90 @@
+.contact-section {
+  width: 100%;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  min-height: 100vh; /* Ajusta la altura mínima al 100% de la altura de la ventana del navegador */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenido verticalmente */
+}
+
+.contact-form-container > * + * {
+  margin-top: 1.5rem;
+}
+
+.contact-header {
+  text-align: center;
+}
+
+.contact-header h1 {
+  font-size: 1.875rem;
+  font-weight: bold;
+}
+
+.contact-header p {
+  color: #718096;
+  text-align: center;
+  margin: 0 1rem;
+  overflow-wrap: break-word;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-form-row {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+textarea {
+  padding: 10px;
+  border: 1px solid #D1D5DB;
+  border-radius: 4px;
+  width: 100%;
+}
+
+textarea {
+  min-height: 150px;
+}
+
+.contact-submit-button {
+  padding: 10px;
+  background-color: #3B82F6;
+  color: white;
+  border: none;
+  width: 100%;
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 600px) {
+  .contact-header h1 {
+    font-size: 1.5rem; /* Más pequeño en dispositivos móviles */
+  }
+  
+  .contact-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  form {
+    gap: 8px; /* Reduce el espacio entre elementos de formulario */
+  }
+
+  input,
+  textarea,
+  .contact-submit-button {
+    padding: 8px; /* Reduce el padding en elementos de formulario */
+  }
+}
