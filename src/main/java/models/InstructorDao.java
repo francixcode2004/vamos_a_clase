@@ -236,5 +236,33 @@ public class InstructorDao {
 	        }
 	    }
 	}
+	public String mostrarInstructores() {
+	    String combo = "<select id=\"instructor\" name=\"instructor\" onchange=\"mostrarInformacionTutor()\">";
+	    String sql = "SELECT id_usuario, nombre FROM usuarios WHERE id_perfil = 3;";
+	    DatabaseConnection con = new DatabaseConnection();
+	    ResultSet rs = null;
+	    try {
+	        rs = con.consulta(sql);
+	        while (rs.next()) {
+	            combo += "<option value=\"" + rs.getInt("id_usuario") + "\">" + rs.getString("nombre") + "</option>";
+	        }
+	        combo += "</select>";
+	    } catch (SQLException e) {
+	        System.out.println("Error al ejecutar la consulta SQL: " + e.getMessage());
+	    } finally {
+	        try {
+	            if (rs != null) {
+	                rs.close(); // Cerrar el ResultSet si no es nulo
+	            }
+	            con.cerrar(); // Cerrar la conexión a la base de datos
+	        } catch (SQLException ex) {
+	            ex.printStackTrace();
+	        }
+	    }
+
+	    return combo;
+	}
+
+
 
 }

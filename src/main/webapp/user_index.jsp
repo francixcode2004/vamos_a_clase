@@ -46,6 +46,7 @@ if (usuario == null || perfil == null || perfil != 2) {
                 <a href="#fotos">Fotos</a>
 			    <a href="#audio">Audio</a>
 			    <a href="#video">Video</a>
+			    <a href="user_tutoria.jsp">Agendar Tutoria</a>
                 <a href="${pageContext.request.contextPath}/UserServlet?action=cerrar">Cerrar Sesión</a>
             </nav>
         </header>
