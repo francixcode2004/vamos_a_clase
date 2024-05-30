@@ -22,26 +22,7 @@
 <body>
     <div class="flex flex-col min-h-screen">
         <header class="header">
-            <a class="logo" href="index.jsp">
-                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
-                </svg>
-                <span>¡Vamos a clase!</span>
-            </a>
-            <p>
-			    <a href="http://jigsaw.w3.org/css-validator/check/referer">
-			        <img style="border:0;width:88px;height:31px"
-			            src="http://jigsaw.w3.org/css-validator/images/vcss"
-			            alt="¡CSS Válido!" />
-			    </a>
-			</p>
-			<p>
-			<a href="http://jigsaw.w3.org/css-validator/check/referer">
-			    <img style="border:0;width:88px;height:31px"
-			        src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
-			        alt="¡CSS Válido!" />
-			    </a>
-			</p>
+            
             <nav class="nav">
                 <a href="#noticias">Noticias</a>
                 <a href="#fotos">Fotos</a>
@@ -211,6 +192,19 @@
             <a class="footer-link" href="#">Términos de servicio</a>
             <a class="footer-link" href="#">Política de privacidad</a>
         </nav>
+        <a class="logo" href="index.jsp">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                </svg>
+                <span>¡Vamos a clase!</span>
+            </a>
+			<p>
+			<a href="http://jigsaw.w3.org/css-validator/check/referer">
+			    <img style="border:0;width:88px;height:31px"
+			        src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+			        alt="¡CSS Válido!" />
+			    </a>
+			</p>
     </footer>
         </main>
     </div>
